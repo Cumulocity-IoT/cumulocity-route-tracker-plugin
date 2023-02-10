@@ -1,0 +1,105 @@
+{
+  "name": "cumulocity-route-tracker-plugin",
+  "version": "1.0.0-beta",
+  "description": "The Route Tracker Widget help you to display route, geofence along with realtime device status and also one can enable the smart rule which gets trigged when smart rule violation happens.",
+  "scripts": {
+    "start": "c8ycli server",
+    "build": "c8ycli build",
+    "deploy": "c8ycli deploy",
+    "postinstall": "ngcc",
+    "prebuild": " gulp clean",
+    "postbuild": " gulp bundle"
+  },
+  "keywords": [],
+  "author": "Darpankumar Lalani - Software AG, Global Presales",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@angular/animations": "14.0.6",
+    "@angular/cdk": "14.1.2",
+    "@angular/common": "14.0.6",
+    "@angular/compiler": "14.0.6",
+    "@angular/material": "^14.0.6",
+    "@angular/core": "14.0.6",
+    "@angular/forms": "14.0.6",
+    "@angular/platform-browser": "14.0.6",
+    "@angular/platform-browser-dynamic": "14.0.6",
+    "@angular/router": "14.0.6",
+    "@angular/upgrade": "14.0.6",
+    "@c8y/client": "1016.0.109",
+    "@c8y/ngx-components": "1016.0.109",
+    "@ngx-translate/core": "14.0.0",
+    "rxjs": "~6.6.3",
+    "zone.js": "~0.11.7",
+    "@c8y/style": "1016.0.109",
+    "@c8y/ng1-modules": "1016.0.109",
+    "leaflet-extra-markers": "^1.2.1",
+    "leaflet.markercluster": "^1.4.1",
+    "leaflet-routing-machine": "^3.2.12",
+    "leaflet2": "npm:leaflet@1.7.1",
+    "fontawesome": "4.7.2",
+    "angular-resize-event": "^2.1.0",
+    "moment": "^2.26.0",
+    "tslib": "^2.0.0",
+    "@ng-select/ng-select": "^9.1.0",
+    "@turf/turf": "^6.5.0",
+    "font-awesome": "^4.7.0" 
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "14.0.6",
+    "@angular/compiler-cli": "14.0.6",
+    "@angular/language-service": "14.0.6",
+    "@angular/service-worker": "14.0.6",
+    "@angular/localize": "14.0.6",
+    "@types/jest": "^28.1.6",
+    "@types/webpack": "^5.28.0",
+    "file-loader": "^6.2.0",
+    "jest": "^28.1.3",
+    "@ng-select/ng-select": "^9.1.0",
+    "font-awesome": "^4.7.0",
+    "fontawesome": "4.7.2",
+    "moment": "^2.26.0",
+    "gulp": "^4.0.2",
+    "gulp-zip": "^5.0.1",
+    "jest-preset-angular": "^12.2.0",
+    "typescript": "4.7.4",
+    "@c8y/cli": "1016.0.109",
+    "del": "^6.1.1",
+    "style-loader": "3.3.1",
+    "html-loader": "4.1.0"
+    
+  },
+  "c8y": {
+    "application": {
+      "name": "Cumulocity Route Tracker Plugin",
+      "description": "The Route Tracker Widget help you to display route, geofence along with realtime device status and also one can enable the smart rule which gets trigged when smart rule violation happens.",
+      "contextPath": "route-tracker-runtime-widget",
+      "key": "route-tracker-runtime-widget-application-key",
+      "globalTitle": "The Route Tracker Widget help you to display route, geofence along with realtime device status and also one can enable the smart rule which gets trigged when smart rule violation happens.",
+      "tabsHorizontal": true,
+      "isPackage": true,
+      "noAppSwitcher": true,
+      "package": "plugin",
+      "requiredPlatformVersion": ">=1016.0.0",
+      "icon": {
+        "class": "fa fa-map-pin"
+      },
+      "exports": [
+        {
+          "name": "Route Tracker Plugin",
+          "module": "GpRouteTrackerModule",
+          "path": "./widget/gp-route-tracker.module.ts",
+          "description": "The Route Tracker Widget help you to display route, geofence along with realtime device status and also one can enable the smart rule which gets trigged when smart rule violation happens."
+        }
+      ],
+      "remotes": {
+        "widget-plugin": [
+          "GpRouteTrackerModule"
+        ]
+      }
+    },
+    "cli": {}
+  },
+  "browserslist": [
+    "last 2 major versions"
+  ]
+}
