@@ -77,17 +77,11 @@ export class GpRouteTrackerConfigComponent implements OnInit, DoCheck {
     }
     this.suggestions$ = new Observable((observer: Observer<any>) => {
       this.locationSearchAPI.searchGeoLocation(this.value).subscribe((res: any) => {
-        if (isDevMode()) {
-          console.log(res);
-        }
         observer.next(res);
       });
     });
     this.routeEndSuggestions$ = new Observable((observer: Observer<any>) => {
       this.locationSearchAPI.searchGeoLocation(this.routeEndvalue).subscribe((res: any) => {
-        if (isDevMode()) {
-          console.log(res);
-        }
         observer.next(res);
       });
     });
@@ -107,9 +101,6 @@ export class GpRouteTrackerConfigComponent implements OnInit, DoCheck {
 
   // Update the icon colors input from color input box
   colorUpdateByTyping(colorTyped): void {
-    if (isDevMode()) {
-      console.log('typed', colorTyped);
-    }
     this.iconColorCode = colorTyped;
   }
   // Update the marker colors input from color picker
@@ -119,15 +110,9 @@ export class GpRouteTrackerConfigComponent implements OnInit, DoCheck {
 
   // Update the marker colors input from color input box
   markerColorUpdateByTyping(colorTyped): void {
-    if (isDevMode()) {
-      console.log('typed', colorTyped);
-    }
     this.markerColorCode= colorTyped;
   }
   calledthis(address): void {
-    if (isDevMode()) {
-      console.log('Address  =>  ', this.config.address, address);
-    }
   }
   changeTypeaheadLoading(e: boolean): void {
     this.isLoading = e;
@@ -136,9 +121,6 @@ export class GpRouteTrackerConfigComponent implements OnInit, DoCheck {
    * Change map coordinates based on location search API output
    */
   displayFn(searchResult: LocationResult): void {
-    if (isDevMode()) {
-      console.log('searchResult', searchResult);
-    }
     if (searchResult) {
       this.config.startLat = searchResult.lat;
       this.config.startLng = searchResult.lon;
@@ -148,9 +130,6 @@ export class GpRouteTrackerConfigComponent implements OnInit, DoCheck {
     }
   }
   displayFunc(searchResult: LocationResult): void {
-    if (isDevMode()) {
-      console.log('searchResult', searchResult);
-    }
     if (searchResult) {
       this.config.endLat = searchResult.lat;
       this.config.endLng = searchResult.lon;
@@ -202,9 +181,6 @@ export class GpRouteTrackerConfigComponent implements OnInit, DoCheck {
     fgOnLvl.layer.bringToFront();
     this.layerControl.addOverlay(fgOnLvl.layer, fgOnLvl.name);
     this.layerControl.addTo(this.map);
-    if (isDevMode()) {
-      console.log('geoFence =>    =>  ', this.allGoefences, geoFence);
-    }
   }
 
   async ngDoCheck(): Promise<void> {

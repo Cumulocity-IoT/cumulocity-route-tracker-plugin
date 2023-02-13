@@ -123,11 +123,7 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
   async ngOnInit(){
   
     await import("./gp-leaflet");
-   L  = window.L;
-   console.log("ngOnInIt method....................................");
-   console.log(window.L);
-   console.log(L.Marker);
-    // L  = window.L;
+    L  = window.L;
     this.isflagged = 'true';
     this.initializeMap(true);
   }
@@ -180,12 +176,6 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
         parseFloat(this.inputConfig.endLat),
         parseFloat(this.inputConfig.endLng),
       ];
-      if (isDevMode()) {
-        console.log('routeStartPoint', this.routeStartPoint);
-      }
-      if (isDevMode()) {
-        console.log('routeEndPoint', this.routeEndPoint);
-      }
     }
 
     if (!isFirstCall) {
@@ -316,9 +306,7 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
                 this.addDevicesToMap(this.allDeviceList);
               })
               .catch((err) => {
-                if (isDevMode()) {
                   console.log('+-+- ERROR FOUND WHILE GETTING CHILD DEVICES... ', err);
-                }
               });
           } else {
             this.allDeviceList.push(mo);
@@ -326,9 +314,7 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
           }
         })
         .catch((err) => {
-          if (isDevMode()) {
             console.log('+-+- ERROR while getting context object details for dashboard ', err);
-          }
         });
     } else {
       if (this.allDeviceList.length > 0) {
@@ -462,18 +448,14 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
                 this.realTimeService.unsubscribe(detailSubs);
               }
             } catch (error) {
-              if (isDevMode()) {
                 console.log('+-+-+- error while creating and adding marker to map\n ', [
                   error,
                   imo,
                 ]);
-              }
             }
           }
         } else {
-          if (isDevMode()) {
             console.log('+-+- device without location\n', imo);
-          }
         }
       });
       if (categoryFeatureGroups.length > 0) {
@@ -496,12 +478,9 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
    * This method is used to create marker for given device
    */
   private createMarker(mo: IManagedObject): any {
-    if (isDevMode()) {
-      console.log('Input config', this.inputConfig);
-    }
     // add floor plan, stored in the position's altitude, as option in the marker for later comparisons...
     const iconMarker = L.ExtraMarkers.icon({
-      icon: 'fa-' + this.inputConfig.iconName, // 'fa-truck'
+      icon: this.__getIconForType(mo), // 'fa-truck'
       iconColor: this.inputConfig.iconColor, // this.markerFontColor,'yellow'
       iconSize: [200, 200], // size of the icon
       extraClasses: 'fa-rt',
@@ -510,9 +489,6 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
       svg: 'false',
       prefix: 'fa',
     });
-    if (isDevMode()) {
-      console.log('iconMarker', iconMarker);
-    }
     const iconOpts = {
       title: mo.name,
       id: mo.id,
@@ -520,9 +496,6 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
       draggable: false,
     };
     const markerLatLng = L.latLng(mo.c8y_Position);
-    console.log("createMarker....................................");
-    console.log(window.L);
-    console.log(L.Marker);
     const mkr = L.Marker.movingMarker([markerLatLng, markerLatLng], [1000], iconOpts);
     const mpp = L.popup({ className: 'lt-popup' });
     const elem = [
@@ -563,14 +536,21 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
   }
 
   /**
+     * Returns the Font Awesome icon class to be used depending on the device type retrieved from Cumulocity
+     */
+  private __getIconForType(mo: any): string {
+    if (this.config.iconName) {
+      return `dlt-c8y-icon-${this.config.iconName}`;
+    }
+    return  'fa-asterisk';
+}
+
+  /**
    * Render geofence on map
    */
   private async __doRenderGeofencesOnMap(e: any): Promise<void> {
     const route = e.route;
     // Do something with the route here
-    if (isDevMode()) {
-      console.log(this.isflagged);
-    }
     if (this.isflagged === 'true') {
       if (route && route.coordinates) {
         route.coordinates.forEach((element) => {
@@ -768,9 +748,6 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
       .then(async (smartRulesList) => {
         const smartRuleRecord = smartRulesList.rules.find((rule) => rule.name === smartRuleName);
         if (smartRuleRecord) {
-          if (isDevMode()) {
-            console.log('smartRuleRecord inner', smartRuleRecord);
-          }
           this.updateSmartRule(smartRuleRecord.id);
         } else {
           this.creatSmartRule();
