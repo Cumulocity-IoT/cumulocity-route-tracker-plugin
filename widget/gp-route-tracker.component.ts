@@ -121,7 +121,8 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
   }
 
   async ngOnInit(){
-  //  await import("./gp-leaflet");
+  
+    await import("./gp-leaflet");
    L  = window.L;
    console.log("ngOnInIt method....................................");
    console.log(window.L);
@@ -131,8 +132,12 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
     this.initializeMap(true);
   }
 
-  public ngAfterViewInit(): void {
-    this.initMapHandlers();
+  public async ngAfterViewInit() {
+    if(!L.markerClusterGroup) {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      this.ngAfterViewInit();
+      }
+    else {this.initMapHandlers(); }
   }
 
   // on reload
@@ -199,17 +204,17 @@ export class GpRouteTrackerComponent implements OnInit, AfterViewInit {
    * Initialize Leaflet Map handlers
    */
   protected initMapHandlers(): void {
-    this.map.invalidateSize();
+    if(this.map) {  this.map.invalidateSize(); }
     this.movingMarkerService.initializeMovingMarker(L);
   }
 
   protected updateMapSize(w: number, h: number): void {
     if (w > 0 && h > 0) {
       this.width = w - 20;
-      this.height = h - this.mapInfosDiv.offsetHeight - 10; // 10px from styling :/
+      this.height = h - this.mapInfosDiv?.offsetHeight - 10; // 10px from styling :/
     } else {
-      this.width = this.mapDiv.parentElement.offsetWidth - 20;
-      this.height = this.mapDiv.parentElement.offsetHeight - this.mapInfosDiv.offsetHeight - 10; // 10px from styling :/
+      this.width = this.mapDiv?.parentElement.offsetWidth - 20;
+      this.height = this.mapDiv?.parentElement.offsetHeight - this.mapInfosDiv?.offsetHeight - 10; // 10px from styling :/
     }
   }
 

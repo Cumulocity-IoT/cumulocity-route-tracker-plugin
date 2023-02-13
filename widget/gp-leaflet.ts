@@ -16,10 +16,9 @@
  * limitations under the License.
  */
 import 'leaflet2/dist/leaflet.js';
-import 'leaflet-extra-markers/dist/js/leaflet.extra-markers.min.js';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
+import 'leaflet-extra-markers/dist/js/leaflet.extra-markers.min.js';
 import 'leaflet-routing-machine';
-import 'leaflet.markercluster';
 
 
 export class GPLeaflet  {
