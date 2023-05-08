@@ -26,8 +26,7 @@ The Route Tracker widget help you to display route, geofence along with realtime
 
 ### Runtime Widget Deployment?
 
-* This widget support runtime deployment. Download [Runtime Binary](https://github.com/SoftwareAG/cumulocity-route-tracker-plugin/releases/download/1.0.0/route-tracker-runtime-widget-1.0.0.zip) and install via Administrations --> Ecosystems --> Applications --> Packages.
-
+* This widget support runtime deployment. Download [Runtime Binary](https://github.com/SoftwareAG/cumulocity-route-tracker-plugin/releases/download/1.0.0/sag-ps-pkg-route-tracker-runtime-widget-1.0.0.zip) and install via Administrations --> Ecosystems --> Applications --> Packages.
 
 
 ## QuickStart
