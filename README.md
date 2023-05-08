@@ -1,17 +1,16 @@
 
-# Route Tracker Widget for Cumulocity [<img width="35" src="https://user-images.githubusercontent.com/32765455/211497905-561e9197-18b9-43d5-a023-071d3635f4eb.png"/>](https://github.com/SoftwareAG/cumulocity-route-tracker-plugin/releases/download/1.0.0-beta/route-tracker-runtime-widget-1.0.0-beta.zip)
+# Route Tracker Widget for Cumulocity [<img width="35" src="https://user-images.githubusercontent.com/32765455/211497905-561e9197-18b9-43d5-a023-071d3635f4eb.png"/>](https://github.com/SoftwareAG/cumulocity-route-tracker-plugin/releases/download/1.0.0/sag-ps-pkg-route-tracker-runtime-widget-1.0.0.zip)
 
   
 This Route Tracker widget is the Cumulocity module federation plugin created using c8ycli. This plugin can be used in Application Builder or Cockpit.
 The Route Tracker widget help you to display route, geofence along with realtime device status and also one can enable the smart rule which gets trigged when smart rule violation happens.
 
-### Please note that this plugin is in currently under BETA mode.
 
 ### Please choose Route Tracker release based on Cumulocity/Application builder version:
 
 |APPLICATION BUILDER | CUMULOCITY | ROUTE TRACKER WIDGET |
 |--------------------|------------|----------------------|
-| 2.x.x(coming soon) | >= 1016.x.x| 1.x.x                | 
+| 2.x.x | >= 1016.x.x| 1.x.x                | 
 
   
 ## Representation
@@ -27,7 +26,7 @@ The Route Tracker widget help you to display route, geofence along with realtime
 
 ### Runtime Widget Deployment?
 
-* This widget support runtime deployment. Download [Runtime Binary](https://github.com/SoftwareAG/cumulocity-route-tracker-plugin/releases/download/1.0.0-beta/route-tracker-runtime-widget-1.0.0-beta.zip) and install via Administrations(Beta mode) --> Ecosystems --> Applications --> Packages.
+* This widget support runtime deployment. Download [Runtime Binary](https://github.com/SoftwareAG/cumulocity-route-tracker-plugin/releases/download/1.0.0/route-tracker-runtime-widget-1.0.0.zip) and install via Administrations --> Ecosystems --> Applications --> Packages.
 
 
 

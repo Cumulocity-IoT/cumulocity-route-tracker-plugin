@@ -1,10 +1,10 @@
 {
   "name": "cumulocity-route-tracker-plugin",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "description": "The Route Tracker Widget help you to display route, geofence along with realtime device status and also one can enable the smart rule which gets trigged when smart rule violation happens.",
   "scripts": {
     "start": "c8ycli server",
-    "build": "c8ycli build",
+    "build": "c8ycli build --env.mode=production",
     "deploy": "c8ycli deploy",
     "postinstall": "ngcc",
     "prebuild": " gulp clean",
@@ -69,10 +69,10 @@
   },
   "c8y": {
     "application": {
-      "name": "Cumulocity Route Tracker Plugin",
+      "name": "Route Tracker Widget",
       "description": "The Route Tracker Widget help you to display route, geofence along with realtime device status and also one can enable the smart rule which gets trigged when smart rule violation happens.",
-      "contextPath": "route-tracker-runtime-widget",
-      "key": "route-tracker-runtime-widget-application-key",
+      "contextPath": "sag-ps-pkg-route-tracker-runtime-widget",
+      "key": "sag-ps-pkg-route-tracker-runtime-widget-application-key",
       "globalTitle": "The Route Tracker Widget help you to display route, geofence along with realtime device status and also one can enable the smart rule which gets trigged when smart rule violation happens.",
       "tabsHorizontal": true,
       "isPackage": true,
@@ -84,7 +84,7 @@
       },
       "exports": [
         {
-          "name": "Route Tracker Plugin",
+          "name": "Route Tracker Widget",
           "module": "GpRouteTrackerModule",
           "path": "./widget/gp-route-tracker.module.ts",
           "description": "The Route Tracker Widget help you to display route, geofence along with realtime device status and also one can enable the smart rule which gets trigged when smart rule violation happens."
