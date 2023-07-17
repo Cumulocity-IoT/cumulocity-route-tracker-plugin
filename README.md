@@ -15,7 +15,7 @@ The Route Tracker widget help you to display route, geofence along with realtime
   
 ## Representation
 
-![RouteTrackermain](https://user-images.githubusercontent.com/24636020/186117425-55a2c67b-1dbf-47ba-b50f-5331e07c580a.PNG)
+![RouteTrackermain](assets/route-tracker.png)
   
 
 ## Prerequisite
@@ -49,8 +49,7 @@ Congratulations! Smart Map is configured.
   
 ## User Guide
 
-![RouteTrackerConfiguration](https://user-images.githubusercontent.com/24636020/186117674-10d25550-ad94-4551-867a-12abd50bd847.PNG)
-
+![RouteTrackerConfiguration](assets/config-tracker.png)
 1. Takes device name, geofence radius, start and end address/latitude and longitude, icon name color, marker color and smart rule configuration as input.
 
 2. If configured Smart rule with provided name doesnt exist then a new rule get created and if the rule with provided name exists then it updates the existing rule.
